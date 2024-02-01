@@ -19,7 +19,7 @@ def png2c(path, name):
         for i, x in enumerate(rgb888):
             if i % 16 == 0 and i != 0:
                 f.write('\n')
-            f.write('0x%08X, ' %x)
+            f.write('0x%08X, ' %x.astype(np.uint32))
         f.write('\n};')
     
     rgb565 = [(a << 16) | ((r >> 3) << 11) | ((g >> 2) << 5) | (b >> 3) for (r, g, b, a) in img]
