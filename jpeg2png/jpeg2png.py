@@ -9,9 +9,7 @@ def jpeg2png(path, name, mask=(255, 255, 255), limit=32):
     
     arr = np.array(img.convert('RGBA'))
 
-    for i in range(arr.shape[0]):
-        for j in range(arr.shape[1]):
-            arr[i,j,3] = 0x00 if np.all(np.abs(arr[i,j,:3] - mask) < limit) else 0xFF      # alhpa channel
+    arr[:,:,3] = np.where(np.all(np.abs(arr[:,:,:3] - mask) < limit, axis=2), 0x00, 0xFF)   # alpha channel
 
     Image.fromarray(arr).save(f'{name}.png')
 
