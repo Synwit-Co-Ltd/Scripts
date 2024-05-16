@@ -15,3 +15,6 @@ convert jpeg image to png image, and make specified color being transparency.
 
 ## GBKtoUTF8.py
 convert all files under the same directory with `GBKtoUTF8.py` to utf-8 encoding.
+
+## usb_info
+list all usb device's id, name, manufacturer, and speed class.
