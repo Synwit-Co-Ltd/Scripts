@@ -13,5 +13,5 @@ decode png image and then save the decoded data to c array.
 ## jpeg2png
 convert jpeg image to png image, and make specified color being transparency.
 
-## usb_info
-list all usb device's id, name, manufacturer, and speed class.
+## binmerge
+merge two binary file at specified address.
