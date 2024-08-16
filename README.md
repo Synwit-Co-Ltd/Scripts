@@ -12,6 +12,3 @@ decode png image and then save the decoded data to c array.
 
 ## jpeg2png
 convert jpeg image to png image, and make specified color being transparency.
-
-## binmerge
-merge two binary file at specified address.
