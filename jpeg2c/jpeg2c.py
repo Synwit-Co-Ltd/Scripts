@@ -1,5 +1,6 @@
 #!python3
 import os
+import numpy as np
 import pylab as pl
 
 
@@ -10,7 +11,7 @@ def jpeg2c(path, name):
 
     img = img.reshape((-1, 3))
 
-    rgb888 = [(r << 16) | (g << 8) | b for (r, g, b) in img]
+    rgb888 = [(r << 16) | (g << 8) | b for (r, g, b) in img.astype(np.uint32)]
 
     with open(f'{name}_rgb888.h', 'w') as f:
         f.write(f'const uint32_t Image_{name}_rgb888[{height}][{width}] = {{\n')
@@ -20,7 +21,7 @@ def jpeg2c(path, name):
             f.write('0x%06X, ' %x)
         f.write('\n};')
 
-    rgb565 = [((r >> 3) << 11) | ((g >> 2) << 5) | (b >> 3) for (r, g, b) in img]
+    rgb565 = [((r >> 3) << 11) | ((g >> 2) << 5) | (b >> 3) for (r, g, b) in img.astype(np.uint16)]
     
     with open(f'{name}_rgb565.h', 'w') as f:
         f.write(f'const uint16_t Image_{name}_rgb565[{height}][{width}] = {{\n')
