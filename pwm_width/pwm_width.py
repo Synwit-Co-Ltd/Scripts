@@ -27,7 +27,7 @@ for row in reader:
     if pre_val == '0' and val == '1':
         t_rise = int(float(tim) * 1000000)
 
-    elif pre_val == '1' and val == '0':
+    elif pre_val == '1' and val == '0' and t_rise is not None:
         t_fall = int(float(tim) * 1000000)
 
     pre_tim, pre_val = tim, val
